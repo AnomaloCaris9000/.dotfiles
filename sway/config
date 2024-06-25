@@ -1,3 +1,166 @@
-{
-  "config": "set $mod Mod4\n\nset $term alacritty\nset $browser librewolf\nset $menu wofi\nset $music kew path ~\/Music\n\n# TODO: en faire + mdr\nset $left h\nset $down j\nset $up k\nset $right l\n\nset $fr1 ampersand \nset $fr2 eacute \nset $fr3 quotedbl \nset $fr4 apostrophe \nset $fr5 parenleft \nset $fr6 minus \nset $fr7 egrave \nset $fr8 underscore \nset $fr9 ccedilla \nset $fr0 agrave \n\nbindsym $mod+shift+c reload\n\nbindsym $mod+p exec \/home\/pheidole\/.dotfiles\/sway\/sway-select-window\n\n##############\n# Containers #\n##############\n\nbindsym $mod+f fullscreen toggle\nbindsym $mod+backspace kill\n\nbindsym $mod+shift+h move left\nbindsym $mod+shift+j move down\nbindsym $mod+shift+k move up\nbindsym $mod+shift+l move right\n\nbindsym $mod+s layout toggle stacking split\nbindsym $mod+t layout toggle tabbed split\nbindsym $mod+shift+space floating toggle\nbindsym $mod+b splitv\nbindsym $mod+v splith\n\nmode \"resize\" {\n    bindsym $left resize shrink width 10px\n    bindsym $down resize grow height 10px\n    bindsym $up resize shrink height 10px\n    bindsym $right resize grow width 10px\n\n    bindsym Left resize shrink width 10px\n    bindsym Down resize grow height 10px\n    bindsym Up resize shrink height 10px\n    bindsym Right resize grow width 10px\n\n    bindsym Return mode \"default\"\n    bindsym Escape mode \"default\"\n}\nbindsym $mod+r mode \"resize\"\n\nbindsym $mod+up move scratchpad\nbindsym $mod+down scratchpad show\n\n##############\n# Navigation #\n##############\n\n# Windows\n\nbindsym $mod+h focus left\nbindsym $mod+j focus down\nbindsym $mod+k focus up\nbindsym $mod+l focus right\n\nbindsym $mod+e focus parent\nbindsym $mod+a focus child\n\nbindsym $mod+space focus mode_toggle\n\n# Workspaces\n\nbindsym $mod+$fr1 workspace 1\nbindsym $mod+$fr2 workspace 2\nbindsym $mod+$fr3 workspace 3\nbindsym $mod+$fr4 workspace 4\nbindsym $mod+$fr5 workspace 5\nbindsym $mod+$fr6 workspace 6\t\nbindsym $mod+$fr7 workspace 7\nbindsym $mod+$fr8 workspace 8\t\nbindsym $mod+$fr9 workspace 9\nbindsym $mod+$fr0 workspace 10\n\nbindsym $mod+shift+$fr1 move container to workspace 1\nbindsym $mod+shift+$fr2 move container to workspace 2\nbindsym $mod+shift+$fr3 move container to workspace 3\nbindsym $mod+shift+$fr4 move container to workspace 4\nbindsym $mod+shift+$fr5 move container to workspace 5\nbindsym $mod+shift+$fr6 move container to workspace 6\t\nbindsym $mod+shift+$fr7 move container to workspace 7\nbindsym $mod+shift+$fr8 move container to workspace 8\t\nbindsym $mod+shift+$fr9 move container to workspace 9\nbindsym $mod+shift+$fr0 move container to workspace 10\n\n################\n# Applications #\n################\n\n# Terminal\nbindsym $mod+return exec $term\n# Browser\nbindsym $mod+i exec $browser\n# Launcher\nbindsym $mod+d exec $menu\noutput eDP-1 scale 1\n\n###########\n# XF Keys #\n###########\n\nbindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%\nbindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%\nbindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle\nbindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle\nbindsym XF86MonBrightnessDown exec brightnessctl set 5%-\nbindsym XF86MonBrightnessUp exec brightnessctl set 5%+\nbindsym XF86AudioPlay exec playerctl play-pause\nbindsym XF86AudioNext exec playerctl next\nbindsym XF86AudioPrev exec playerctl previous\nbindsym XF86Search exec bemenu-run\n\nexec_always swayidle -w     timeout 300 \"swaymsg 'output eDP-1 power off'\"     resume \"swaymsg 'output eDP-1 power on'\"     timeout 310 \"swaylock -c 000000 -f\"\\ \n\nexec_always swaync\n\n#assign [app_id=LibreWolf] internet\n\nfont pango:Sans 12\n\ndefault_border pixel 2\ndefault_floating_border normal\nsmart_gaps off\ngaps inner 4\n\noutput * background wallpaper fill\n\ninput type:keyboard {\n\txkb_layout \"fr,us\"\n    xkb_options grp:ctrl_alt_toggle\n}\n\ninput \"type:touchpad\" {\n   pointer_accel 0.3\n}\n\ninput \"type:mouse\" {\n    accel_profile \"flat\"\n    pointer_accel 0\n}\n\nfor_window [all] title_format \"%class > %title\"\n\nbar {\n    position top\n    swaybar_command waybar\n}\n\n\n"
+set $mod Mod4
+set $term alacritty
+set $browser librewolf
+set $menu wofi
+set $music kew path ~\/Music
+
+# TODO: en faire + mdr
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $fr1 ampersand 
+set $fr2 eacute 
+set $fr3 quotedbl 
+set $fr4 apostrophe 
+set $fr5 parenleft 
+set $fr6 minus 
+set $fr7 egrave 
+set $fr8 underscore 
+set $fr9 ccedilla 
+set $fr0 agrave 
+
+bindsym $mod+shift+c reload
+
+bindsym $mod+p exec \/home\/pheidole\/.dotfiles\/sway\/sway-select-window
+
+##############
+# Containers #
+##############
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+backspace kill
+
+bindsym $mod+shift+h move left
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
+bindsym $mod+shift+l move right
+
+bindsym $mod+s layout toggle stacking split
+bindsym $mod+t layout toggle tabbed split
+bindsym $mod+shift+space floating toggle
+bindsym $mod+b splitv
+bindsym $mod+v splith
+
+mode \"resize\" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode \"default\"
+    bindsym Escape mode \"default\"
 }
+bindsym $mod+r mode \"resize\"
+
+bindsym $mod+up move scratchpad
+bindsym $mod+down scratchpad show
+
+##############
+# Navigation #
+##############
+
+# Windows
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+e focus parent
+bindsym $mod+a focus child
+
+bindsym $mod+space focus mode_toggle
+
+# Workspaces
+
+bindsym $mod+$fr1 workspace 1
+bindsym $mod+$fr2 workspace 2
+bindsym $mod+$fr3 workspace 3
+bindsym $mod+$fr4 workspace 4
+bindsym $mod+$fr5 workspace 5
+bindsym $mod+$fr6 workspace 6
+bindsym $mod+$fr7 workspace 7
+bindsym $mod+$fr8 workspace 8
+bindsym $mod+$fr9 workspace 9
+bindsym $mod+$fr0 workspace 10
+
+bindsym $mod+shift+$fr1 move container to workspace 1
+bindsym $mod+shift+$fr2 move container to workspace 2
+bindsym $mod+shift+$fr3 move container to workspace 3
+bindsym $mod+shift+$fr4 move container to workspace 4
+bindsym $mod+shift+$fr5 move container to workspace 5
+bindsym $mod+shift+$fr6 move container to workspace 6
+bindsym $mod+shift+$fr7 move container to workspace 7
+bindsym $mod+shift+$fr8 move container to workspace 8
+bindsym $mod+shift+$fr9 move container to workspace 9
+bindsym $mod+shift+$fr0 move container to workspace 10
+
+###############
+# Applications #
+################
+
+# Terminal
+bindsym $mod+return exec $term
+# Browser
+bindsym $mod+i exec $browser
+# Launcher
+bindsym $mod+d exec $menu
+output eDP-1 scale 1
+
+###########
+# XF Keys #
+###########
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec bemenu-run
+
+exec_always swayidle -w     timeout 300 \"swaymsg 'output eDP-1 power off'\"     resume \"swaymsg 'output eDP-1 power on'\"     timeout 310 \"swaylock -c 000000 -f\"\\ 
+
+exec_always swaync
+
+#assign [app_id=LibreWolf] internet
+
+font pango:Sans 12
+
+default_border pixel 2
+default_floating_border normal
+smart_gaps off
+gaps inner 4
+
+input type:keyboard {   
+    xkb_layout "fr,us"
+    xkb_options grp:ctrl_alt_toggle
+}
+
+input type:touchpad {
+   pointer_accel 0.3
+}
+
+input type:mouse {
+    accel_profile "flat"
+    pointer_accel 0
+}
+
+for_window [all] title_format \"%class > %title\"
+
+bar {
+    position top
+    swaybar_command waybar
+}
+
+
