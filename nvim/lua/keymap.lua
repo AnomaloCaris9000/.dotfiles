@@ -4,8 +4,6 @@ local wk = require("which-key")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-keymap.set("", "az", "aw")
-
 keymap.set("i", "jk", "<esc>")
 
 keymap.set("n", "tt", "<cmd>NvimTreeToggle<cr>")
