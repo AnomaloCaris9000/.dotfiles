@@ -1,8 +1,31 @@
+exec_always swaync
+
+font pango:Sans 12
+
+input type:keyboard {   
+    xkb_layout "fr,us"
+    xkb_options grp:ctrl_alt_toggle
+}
+
+input type:touchpad {
+   pointer_accel 0.3
+}
+
+input type:mouse {
+    accel_profile "flat"
+    pointer_accel 0
+}
+
+bar {
+    position top
+    swaybar_command waybar
+}
+
+
 set $mod Mod4
 set $term alacritty
 set $browser librewolf
-set $menu wofi
-set $music kew path ~\/Music
+set $menu wofi --show=run
 
 # TODO: en faire + mdr
 set $left h
@@ -23,8 +46,6 @@ set $fr0 agrave
 
 bindsym $mod+shift+c reload
 
-bindsym $mod+p exec \/home\/pheidole\/.dotfiles\/sway\/sway-select-window
-
 ##############
 # Containers #
 ##############
@@ -43,7 +64,7 @@ bindsym $mod+shift+space floating toggle
 bindsym $mod+b splitv
 bindsym $mod+v splith
 
-mode \"resize\" {
+mode "resize" {
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
@@ -57,7 +78,7 @@ mode \"resize\" {
     bindsym Return mode \"default\"
     bindsym Escape mode \"default\"
 }
-bindsym $mod+r mode \"resize\"
+bindsym $mod+r mode "resize"
 
 bindsym $mod+up move scratchpad
 bindsym $mod+down scratchpad show
@@ -73,7 +94,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+e focus parent
+bindsym $mod+z focus parent
 bindsym $mod+a focus child
 
 bindsym $mod+space focus mode_toggle
@@ -128,39 +149,4 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec bemenu-run
-
-exec_always swayidle -w     timeout 300 \"swaymsg 'output eDP-1 power off'\"     resume \"swaymsg 'output eDP-1 power on'\"     timeout 310 \"swaylock -c 000000 -f\"\\ 
-
-exec_always swaync
-
-#assign [app_id=LibreWolf] internet
-
-font pango:Sans 12
-
-default_border pixel 2
-default_floating_border normal
-smart_gaps off
-gaps inner 4
-
-input type:keyboard {   
-    xkb_layout "fr,us"
-    xkb_options grp:ctrl_alt_toggle
-}
-
-input type:touchpad {
-   pointer_accel 0.3
-}
-
-input type:mouse {
-    accel_profile "flat"
-    pointer_accel 0
-}
-
-for_window [all] title_format \"%class > %title\"
-
-bar {
-    position top
-    swaybar_command waybar
-}
-
 
