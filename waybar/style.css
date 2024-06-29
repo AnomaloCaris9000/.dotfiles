@@ -1,5 +1,4 @@
 /* 
- * TOFIX : background de la waybar devient blanc quand je chaque de workspace
  */
 
 * {
@@ -12,23 +11,6 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
 }
 
 button {
@@ -76,20 +58,13 @@ button:hover {
 
 #clock,
 #battery,
-#cpu,
-#memory,
-#disk,
 #temperature,
-#backlight,
 #network,
 #pulseaudio,
 #wireplumber,
 #custom-media,
-#tray,
 #mode,
-#idle_inhibitor,
 #scratchpad,
-#power-profiles-daemon,
 #mpd {
     padding: 0 10px;
     color: #ffffff;
