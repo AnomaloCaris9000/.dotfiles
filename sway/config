@@ -1,4 +1,32 @@
+set $mod Mod4
+set $term alacritty
+set $browser librewolf
+set $menu wofi --show=run
+
+# TODO: en faire + mdr
+set $left h
+set $down j
+set $up k
+set $right l
+
+# fichu azerty
+set $fr1 ampersand 
+set $fr2 eacute 
+set $fr3 quotedbl 
+set $fr4 apostrophe 
+set $fr5 parenleft 
+set $fr6 minus 
+set $fr7 egrave 
+set $fr8 underscore 
+set $fr9 ccedilla 
+set $fr0 agrave 
+
 exec_always swaync
+
+exec swayidle -w \
+	timeout 1800 'swaylock -f' \
+	timeout 1805 'swaymsg "output * power off"' \
+	resume 'swaymsg "output * power on"'
 
 font pango:Sans 12
 
@@ -21,28 +49,6 @@ bar {
     swaybar_command waybar
 }
 
-
-set $mod Mod4
-set $term alacritty
-set $browser librewolf
-set $menu wofi --show=run
-
-# TODO: en faire + mdr
-set $left h
-set $down j
-set $up k
-set $right l
-
-set $fr1 ampersand 
-set $fr2 eacute 
-set $fr3 quotedbl 
-set $fr4 apostrophe 
-set $fr5 parenleft 
-set $fr6 minus 
-set $fr7 egrave 
-set $fr8 underscore 
-set $fr9 ccedilla 
-set $fr0 agrave 
 
 bindsym $mod+shift+c reload
 
