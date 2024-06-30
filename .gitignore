@@ -1,5 +1,4 @@
-tmux/plugins/*
-!tmux/tmux.conf
+tmux/plugins/
 
 calcurse/*
 !calcurse/conf
