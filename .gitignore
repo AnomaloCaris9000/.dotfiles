@@ -1,1 +1,7 @@
-calcurse/
+calcurse/notes
+calcurse/apts
+calcurse/todo
+calcurse/keys
+calcurse/.calcurse.pid
+
+tmux/plugins
