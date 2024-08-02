@@ -1,5 +1,9 @@
+# vim:foldmethod=marker
+
+# sets {{{
+
 set $mod Mod4
-set $term alacritty
+set $term kitty
 set $browser librewolf
 set $menu wofi --show=run
 
@@ -8,6 +12,7 @@ set $left h
 set $down j
 set $up k
 set $right l
+
 
 # fichu azerty
 set $fr1 ampersand 
@@ -21,14 +26,16 @@ set $fr8 underscore
 set $fr9 ccedilla 
 set $fr0 agrave 
 
-exec_always swaync
+# }}}
 
-output eDP-1 scale 1
+exec_always swaync
 
 exec swayidle -w \
 	timeout 1800 'swaylock -f' \
 	timeout 1805 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"'
+
+output eDP-1 scale 1
 
 font pango:Sans 12
 
@@ -47,16 +54,15 @@ input type:mouse {
 }
 
 bar {
+    swaybar_command swaybar
     position top
-    swaybar_command waybar
+    status_command /home/pheidole/.config/sway/bar.py
+    binding_mode_indicator yes
 }
 
+# bindsyms {{{
 
 bindsym $mod+shift+c reload
-
-##############
-# Containers #
-##############
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+backspace kill
@@ -91,10 +97,6 @@ bindsym $mod+r mode "resize"
 bindsym $mod+up move scratchpad
 bindsym $mod+down scratchpad show
 
-##############
-# Navigation #
-##############
-
 # Windows
 
 bindsym $mod+h focus left
@@ -109,31 +111,27 @@ bindsym $mod+space focus mode_toggle
 
 # Workspaces
 
-bindsym $mod+$fr1 workspace 1
-bindsym $mod+$fr2 workspace 2
-bindsym $mod+$fr3 workspace 3
-bindsym $mod+$fr4 workspace 4
-bindsym $mod+$fr5 workspace 5
-bindsym $mod+$fr6 workspace 6
-bindsym $mod+$fr7 workspace 7
-bindsym $mod+$fr8 workspace 8
-bindsym $mod+$fr9 workspace 9
-bindsym $mod+$fr0 workspace 10
+bindsym --to-code $mod+$fr1 workspace 1
+bindsym --to-code $mod+$fr2 workspace 2
+bindsym --to-code $mod+$fr3 workspace 3
+bindsym --to-code $mod+$fr4 workspace 4
+bindsym --to-code $mod+$fr5 workspace 5
+bindsym --to-code $mod+$fr6 workspace 6
+bindsym --to-code $mod+$fr7 workspace 7
+bindsym --to-code $mod+$fr8 workspace 8
+bindsym --to-code $mod+$fr9 workspace 9
+bindsym --to-code $mod+$fr0 workspace 10
 
-bindsym $mod+shift+$fr1 move container to workspace 1
-bindsym $mod+shift+$fr2 move container to workspace 2
-bindsym $mod+shift+$fr3 move container to workspace 3
-bindsym $mod+shift+$fr4 move container to workspace 4
-bindsym $mod+shift+$fr5 move container to workspace 5
-bindsym $mod+shift+$fr6 move container to workspace 6
-bindsym $mod+shift+$fr7 move container to workspace 7
-bindsym $mod+shift+$fr8 move container to workspace 8
-bindsym $mod+shift+$fr9 move container to workspace 9
-bindsym $mod+shift+$fr0 move container to workspace 10
-
-###############
-# Applications #
-################
+bindsym --to-code $mod+shift+$fr1 move container to workspace 1
+bindsym --to-code $mod+shift+$fr2 move container to workspace 2
+bindsym --to-code $mod+shift+$fr3 move container to workspace 3
+bindsym --to-code $mod+shift+$fr4 move container to workspace 4
+bindsym --to-code $mod+shift+$fr5 move container to workspace 5
+bindsym --to-code $mod+shift+$fr6 move container to workspace 6
+bindsym --to-code $mod+shift+$fr7 move container to workspace 7
+bindsym --to-code $mod+shift+$fr8 move container to workspace 8
+bindsym --to-code $mod+shift+$fr9 move container to workspace 9
+bindsym --to-code $mod+shift+$fr0 move container to workspace 10
 
 # Terminal
 bindsym $mod+return exec $term
@@ -141,20 +139,23 @@ bindsym $mod+return exec $term
 bindsym $mod+i exec $browser
 # Launcher
 bindsym $mod+d exec $menu
-output eDP-1 scale 1
 
-###########
-# XF Keys #
-###########
-
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86Search exec bemenu-run
+bindsym XF86AudioMedia exec $browser /home/pheidole/coolstuff.webm
 
+# }}}
+
+set $numpad "49396:1472:Hengchangtong__HCT_USB_Entry_Keyboard"
+
+bindsym --input-device=$numpad KP_Home mode "test"
+mode "test"  {
+    bindsym a exec notify-send "hello"
+    bindsym Return mode "default"
+}
