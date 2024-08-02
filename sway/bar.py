@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 import json
 import time
 import sys
@@ -9,8 +10,6 @@ import queue
 import re
 import psutil
 
-#if os.fork() == 0:
-    #os.system("alacritty -e sh -c 'cat /proc/{}/fd/0'".format(os.getppid()))
 
 def notify(msg = "hello"):
     os.system("notify-send {}".format(msg))
@@ -78,11 +77,12 @@ class Bat(Block):
 
     def __init__(self):
         super().__init__()
-        self.battery = psutil.sensors_battery()
 
     def on_tick(self):
-        self.battery = psutil.sensors_battery()
-        self.full_text = str(self.battery.percent)
+        battery = psutil.sensors_battery()
+        self.full_text = "bat {percent}%".format(
+                    percent = int(battery.percent)
+                )
 
 header = Header()
 status_line = StatusLine()
