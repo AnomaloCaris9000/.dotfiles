@@ -4,7 +4,11 @@ obsidian.setup {
     workspaces = {
         {
             name = "brain",
-            path = "~/Obsidian/brain",
+            path = "~/Nextcloud/Obsidian/brain",
         },
     },
+
+    completion = {
+        nvim_cmp = true,
+    }
 }

@@ -9,7 +9,7 @@ local border = {
 cmp.setup {
 
     performance = {
-        max_view_entries = 8,
+        max_view_entries = 16,
     },
 
     window = {
@@ -22,12 +22,11 @@ cmp.setup {
     },
 
     sources = cmp.config.sources({
-        { name = "luasnip", },
-        { name = "nvim_lsp", },
+        { name = 'nvim_lsp' },
         { name = "vimtex", },
         { name = "nvim_lua", },
         { name = "doxygen", },
-        { name = "buffer", },
+        { name = 'buffer' },
     }),
 
     snippet = {

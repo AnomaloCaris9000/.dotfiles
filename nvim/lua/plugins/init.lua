@@ -15,6 +15,34 @@ vim.opt.rtp:prepend(lazypath)
 
 return {
 
+    "https://github.com/norcalli/nvim-terminal.lua.git",
+
+    {
+        "nvim-neorg/neorg", -- TOFIX: essai
+        run = ":Neorg sync-parser",
+        config = function()
+            require("neorg").setup {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {},
+                    ["core.dirman"] = {
+                        config = {
+                            workspaces = {
+                                notes = "~/Neorg/brain",
+                            },
+                        },
+                    },
+                    ["core.ui"] = {},
+                    ["core.ui.calendar"] = {},
+                },
+            }
+        end,
+        require = {
+            "nvim-lua/plenary.nvim",
+        }
+    },
+    '3rd/image.nvim',
+
     "simrat39/rust-tools.nvim",
     "mfussenegger/nvim-jdtls",
     "brenoprata10/nvim-highlight-colors",
@@ -29,12 +57,14 @@ return {
 
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
+    'hrsh7th/cmp-buffer',
 
     "stevearc/overseer.nvim",
     "stevearc/dressing.nvim",
     "rcarriga/nvim-notify",
 
     -- TELESCOPE
+    "camgraff/telescope-tmux.nvim",
     'nvim-telescope/telescope.nvim',
     "nvim-telescope/telescope-project.nvim",
     'nvim-lua/plenary.nvim',
@@ -44,10 +74,10 @@ return {
     "sshelll/telescope-switch.nvim",
     "LinArcX/telescope-command-palette.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
-    "nvim-telescope/telescope-frecency.nvim",
     "OliverChao/telescope-picker-list.nvim",
     "jonarrien/telescope-cmdline.nvim",
     "albenisolmos/telescope-oil.nvim",
+    "octarect/telescope-menu.nvim",
 
 
     "goolord/alpha-nvim",
