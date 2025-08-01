@@ -35,7 +35,7 @@ exec swayidle -w \
 	timeout 1805 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"'
 
-output eDP-1 scale 1
+output eDP-1 scale 2
 
 font pango:Sans 12
 
@@ -55,7 +55,6 @@ input type:mouse {
 
 bar {
     swaybar_command swaybar
-    position top
     status_command /home/pheidole/.config/sway/bar.py
     binding_mode_indicator yes
 }
@@ -143,8 +142,8 @@ bindsym $mod+d exec $menu
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -159,3 +158,5 @@ mode "test"  {
     bindsym a exec notify-send "hello"
     bindsym Return mode "default"
 }
+
+#output "*" bg wallpaper fill

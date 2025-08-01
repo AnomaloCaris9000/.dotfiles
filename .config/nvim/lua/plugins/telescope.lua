@@ -1,1 +1,1 @@
-require("telescope")
+require("telescope").setup {}

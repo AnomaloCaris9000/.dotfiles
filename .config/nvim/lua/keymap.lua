@@ -5,7 +5,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 keymap.set("i", "jk", "<esc>")
-
 keymap.set("n", "tt", "<cmd>NvimTreeToggle<cr>")
 
 

@@ -5,11 +5,10 @@ require("rocks")
 
 require("plugins.cmp")
 require("plugins.lspconfig")
---require("plugins.rust-tools")
 --require("plugins.dap")
 --require("plugins.dapui")
 --require("plugins.overseer")
---require("plugins.telescope")
+require("plugins.telescope")
 --require("plugins.alpha")
 require("plugins.which-key")
 --require("plugins.edgy")
@@ -18,3 +17,7 @@ require("plugins.which-key")
 require("plugins.lualine")
 
 require("keymap")
+
+vim.g.rustaceanvim = {}
+
+vim.cmd [[ colorscheme tokyonight ]]
