@@ -5,7 +5,7 @@
 set $mod Mod4
 # stow quest ce que tu fous bordel
 set $term kitty --config=/home/pheidole/.dotfiles/.config/kitty/kitty.conf
-set $browser librewolf
+set $browser firefox
 set $menu wofi --show=run
 
 # TODO: en faire + mdr
@@ -23,7 +23,7 @@ exec swayidle -w \
 	timeout 1805 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"'
 
-output eDP-1 scale 1
+output eDP-1 scale 2
 
 font pango:Sans 12
 
@@ -43,7 +43,6 @@ input type:mouse {
 
 bar {
     swaybar_command swaybar
-    position top
     status_command /home/pheidole/.config/sway/bar.py
     binding_mode_indicator yes
 }
@@ -149,3 +148,5 @@ mode "test"  {
     bindsym a exec notify-send "hello"
     bindsym Return mode "default"
 }
+
+#output "*" bg wallpaper fill

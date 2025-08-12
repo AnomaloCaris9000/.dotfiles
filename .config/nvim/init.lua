@@ -1,20 +1,23 @@
-local plugins = require("plugins")
-require("lazy").setup(plugins)
-
 require("options")
-require("keymap")
 require("autocmd")
 
-require("plugins.configs.cmp")
-require("plugins.configs.lspconfig")
-require("plugins.configs.rust-tools")
-require("plugins.configs.dap")
-require("plugins.configs.dapui")
-require("plugins.configs.overseer")
-require("plugins.configs.telescope")
-require("plugins.configs.alpha")
---require("plugins.configs.which-key")
-require("plugins.configs.edgy")
-require("plugins.configs.oil")
-require("plugins.configs.copilot")
-require("plugins.configs.lualine")
+require("rocks")
+
+require("plugins.cmp")
+require("plugins.lspconfig")
+--require("plugins.dap")
+--require("plugins.dapui")
+--require("plugins.overseer")
+require("plugins.telescope")
+--require("plugins.alpha")
+require("plugins.which-key")
+--require("plugins.edgy")
+--require("plugins.oil")
+--require("plugins.copilot")
+require("plugins.lualine")
+
+require("keymap")
+
+vim.g.rustaceanvim = {}
+
+vim.cmd [[ colorscheme tokyonight ]]
