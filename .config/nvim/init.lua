@@ -16,6 +16,8 @@ require("plugins.which-key")
 --require("plugins.copilot")
 require("plugins.lualine")
 
+require("vgit").setup()
+
 require("keymap")
 
 vim.g.rustaceanvim = {}
